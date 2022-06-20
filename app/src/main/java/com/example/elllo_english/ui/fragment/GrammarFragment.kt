@@ -18,40 +18,40 @@ import com.example.elllo_english.viewmodel.ViewModel
 
 class GrammarFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
-    private lateinit var viewModel :ViewModel
+    private lateinit var viewModel: ViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_grammar, container, false)
-        recyclerView=view.findViewById(R.id.grammar_recycleview)
+        val view = inflater.inflate(R.layout.fragment_grammar, container, false)
+        recyclerView = view.findViewById(R.id.grammar_recycleview)
         return view
     }
 
-    companion object{
-        var courseId =0
+    companion object {
+        var courseId = 0
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         AppLogger.info("Recycleview")
-        val adapter =GrammarAdapter()
-        recyclerView.adapter=adapter
-        recyclerView.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+        val adapter = GrammarAdapter()
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         AppLogger.info("ViewModel get grammar")
-        Repository.CourseId =courseId
-        viewModel=ViewModelProvider(this).get(ViewModel::class.java)
+        Repository.CourseId = courseId
+        viewModel = ViewModelProvider(this).get(ViewModel::class.java)
         viewModel.getGrammar.observe(viewLifecycleOwner, Observer { grammars ->
-            if(grammars.size>0){
+            if (grammars.size > 0) {
                 adapter.setListGrammar(grammars)
-            }
-            else{
+            } else {
                 AppLogger.info("Default grammar if null")
-                val listDefault :List<Grammar> = listOf(Grammar(0,0,"Loading","",""))
+                val listDefault: List<Grammar> = listOf(Grammar(0, 0, "Loading", "", ""))
                 adapter.setListGrammar(listDefault)
             }
 

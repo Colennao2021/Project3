@@ -62,7 +62,7 @@ object AppLogger {
     private var instance: AppLogger? = null
 
     fun getInstance(): AppLogger? {
-        if (instance == null) instance =AppLogger
+        if (instance == null) instance = AppLogger
         return instance
     }
 
@@ -100,17 +100,17 @@ object AppLogger {
     }
 
     private fun print(level: Level, msg: String) {
-        if (setting!!.isLog) {
-            val now = System.currentTimeMillis()
-            val time = millisecondToDate(now, Config.Format.date)
-            val element = Throwable().stackTrace[2]
-            val file = element.className
-            val method = element.methodName
-            val line = element.lineNumber
-            val string =
-                String.format(Config.Format.messenger, level, time, file, method, line, msg)
-            println(string)
-        }
+
+        val now = System.currentTimeMillis()
+        val time = millisecondToDate(now, Config.Format.date)
+        val element = Throwable().stackTrace[2]
+        val file = element.className
+        val method = element.methodName
+        val line = element.lineNumber
+        val string =
+            String.format(Config.Format.messenger, level, time, file, method, line, msg)
+        println(string)
+
     }
 
     private fun millisecondToDate(time: Long, format: String): String {

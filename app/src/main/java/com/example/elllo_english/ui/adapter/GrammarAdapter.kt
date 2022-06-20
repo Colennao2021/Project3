@@ -9,7 +9,7 @@ import com.example.elllo_english.R
 import com.example.elllo_english.data.models.Grammar
 import com.example.elllo_english.data.models.Script
 
-class GrammarAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class GrammarAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var grammars: List<Grammar> = emptyList()
 
     fun setListGrammar(tmp: List<Grammar>) {
@@ -42,7 +42,7 @@ class GrammarAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         fun bindingData(grammar: Grammar) {
             point.text = grammar.point
             title.text = grammar.title
-            example.text=grammar.example
+            example.text = grammar.example
         }
     }
 }

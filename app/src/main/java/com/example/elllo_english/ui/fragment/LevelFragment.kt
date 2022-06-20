@@ -42,10 +42,11 @@ class LevelFragment : Fragment() {
         AppLogger.info("RecycleView")
         val adapter = LevelAdapter()
         recycleView.adapter = adapter
-        recycleView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+        recycleView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         AppLogger.info("ViewModel get all level")
-        viewModel =ViewModelProvider(this).get(ViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ViewModel::class.java)
         viewModel.getALlLevel.observe(viewLifecycleOwner, Observer { level ->
             adapter.setListLevel(level)
         })

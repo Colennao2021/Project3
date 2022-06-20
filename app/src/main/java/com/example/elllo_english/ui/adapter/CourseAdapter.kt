@@ -30,7 +30,7 @@ class CourseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is CourseViewHolder) {
-            val course =courses.get(position)
+            val course = courses.get(position)
             holder.bindingData(course)
             holder.itemView.item_course.setOnClickListener {
                 val action = CourseFragmentDirections.actionCourseFragmentToDetailFragment(course)

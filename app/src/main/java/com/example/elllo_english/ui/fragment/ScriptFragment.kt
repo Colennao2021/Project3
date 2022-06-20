@@ -16,7 +16,7 @@ import com.example.elllo_english.ui.adapter.ScriptAdapter
 import com.example.elllo_english.utils.AppLogger
 import com.example.elllo_english.viewmodel.ViewModel
 
-class ScriptFragment() : Fragment(){
+class ScriptFragment() : Fragment() {
     private lateinit var viewModel: ViewModel
     private lateinit var recycleView: RecyclerView
 
@@ -30,8 +30,8 @@ class ScriptFragment() : Fragment(){
         return view
     }
 
-    companion object{
-        var courseId =0
+    companion object {
+        var courseId = 0
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

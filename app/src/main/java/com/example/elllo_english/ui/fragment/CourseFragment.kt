@@ -20,7 +20,7 @@ import com.example.elllo_english.viewmodel.ViewModel
 
 class CourseFragment : Fragment() {
     private lateinit var viewModel: ViewModel
-    private lateinit var recycleView :RecyclerView
+    private lateinit var recycleView: RecyclerView
 
     private val args: CourseFragmentArgs by navArgs()
 
@@ -29,8 +29,8 @@ class CourseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_course, container, false)
-        recycleView=view.findViewById(R.id.course_recycleview)
+        val view = inflater.inflate(R.layout.fragment_course, container, false)
+        recycleView = view.findViewById(R.id.course_recycleview)
         return view
 
     }
@@ -45,14 +45,13 @@ class CourseFragment : Fragment() {
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         AppLogger.info("ViewModel")
-        Repository.levelId=args.level.id
+        Repository.levelId = args.level.id
         viewModel = ViewModelProvider(this).get(ViewModel::class.java)
         viewModel.getCourse.observe(viewLifecycleOwner, Observer { courses ->
-            if(courses.size>0){
+            if (courses.size > 0) {
                 adapter.setListCourse(courses)
-            }
-            else{
-                val courseDefault :List<Course> = listOf(Course(0,0,"Updating course","",0))
+            } else {
+                val courseDefault: List<Course> = listOf(Course(0, 0, "Updating course", "", 0))
                 adapter.setListCourse(courseDefault)
             }
         })

@@ -8,9 +8,9 @@ import com.example.elllo_english.data.models.Script
 
 class Repository(private val dao: DAO) {
 
-    companion object{
-        var levelId :Int=0
-        var CourseId :Int=0
+    companion object {
+        var levelId: Int = 0
+        var CourseId: Int = 0
     }
 
     val getAllLevel: LiveData<List<Level>> = dao.getAllLevel()
