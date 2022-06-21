@@ -60,8 +60,9 @@ class DetailFragment : Fragment() {
 
         AppLogger.info("MediaPlayer")
         val mediaPlayer = MediaPlayer()
+        AppLogger.info("audio url default")
         val audioUrl =
-            "https://data.chiasenhac.com/down2/2256/1/2255882-3e008551/128/Chi%20La%20Mot%20Cuoc%20Gap%20Go%20-%20Ham%20Dang_%20Nam%20T.mp3"
+            "https://data.chiasenhac.com/down2/2256/2/2255996-cebc0861/128/Hit%20Ya_%20-%20Lapillus.mp3"
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
         mediaPlayer.setDataSource(audioUrl)
         mediaPlayer.prepareAsync()
